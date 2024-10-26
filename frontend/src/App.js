@@ -4,13 +4,9 @@ import Home from './components/home/Home';
 import Layout from './components/layout/Layout';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
-import Admin from './components/admin/Admin';
-import Instructor from './components/instructor/AttendanceForm';
-import Parent from './components/parent/Parent';
-import Parent1 from './components/parent/parent1/Parent1';
-import Parent2 from './components/parent/parent2/Parent2';
-import Donor from './components/donor/PaymentForm';
-
+import Dashboard from './components/dashboard/Dashboard'
+import FindNutrition from './components/findnutrition/Findnutrition'
+import Queries from './components/queries/Queries'
 function App() {
   const router = createBrowserRouter([
     {
@@ -26,34 +22,20 @@ function App() {
           element: <Login />
         },
         {
-          path: 'donor',
-          element: <Donor />
-        },
-        {
           path: 'register',
           element: <Register />
         },
         {
-          path: 'admin',
-          element: <Admin />
+          path:'dashboard',
+          element:<Dashboard/>
         },
         {
-          path: 'parent',
-          element: <Parent />,
-          children: [
-            {
-              path: 'first',
-              element: <Parent1 />
-            },
-            {
-              path: 'second',
-              element: <Parent2 />
-            }
-          ]
+          path:'find-nutrition',
+          element:<FindNutrition/>
         },
         {
-          path: 'instructor',
-          element: <Instructor />
+          path:'queries',
+          element:<Queries/>
         }
       ]
     }

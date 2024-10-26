@@ -3,7 +3,7 @@ post http://localhost:4000/user-api/user
 Content-Type: application/json
 
 {
-    "userId":{{$timestamp}},
+    
     "name":"ravi2",
     "password":"ravi1",
     "email":"ravi@gmail.com",
@@ -15,7 +15,7 @@ Content-Type: application/json
     "calcium": 10,
     "fat": 10,
     "carbs": 8,
-    "Vitamins": 5
+    "vitamins": 5
 }
 ###user login req
 
@@ -24,7 +24,7 @@ Content-Type: application/json
 
 {
     "dateId":{{$timestamp}},
-    "userId":34677,
+    "name":"ravi2",
     "protein":3,
     "calcium":6,
     "fat":3,

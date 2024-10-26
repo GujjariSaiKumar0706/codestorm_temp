@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import parentInstructorReducer from "./slice/subhikshaslice";
+import userReducer from "./slice/userslice";
 
 export const store = configureStore({
   reducer: {
-    parentInstructorLogin: parentInstructorReducer, // use this name consistently
+    userLogin: userReducer, // use this name consistently
   }
 });

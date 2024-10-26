@@ -13,17 +13,9 @@ function Register() {
 async function registerUser(user){
   console.log(user)
   let res;
-  if(user.role=='Parent'){
-    res = await axios.post('http://localhost:8000/parent-api/user',user)
+    res = await axios.post('http://localhost:4000/user-api/user',user)
     console.log(res)
-}else if (user.role=='Instructor'){
-  res= await axios.post('http://localhost:8000/instructor-api/user',user)
-
-}
-else{
-    res = await axios.post('http://localhost:8000/admin-api/user',user)
-}
-if(res.data.message==='User Created' ){
+if(res.data.message==='User created' ){
     navigate('/login')
 }
 else{

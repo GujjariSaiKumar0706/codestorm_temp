@@ -1,20 +1,20 @@
 import React from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { subhikshaLoginThunk } from '../../redux/slice/subhikshaslice';
+import { userLoginThunk } from '../../redux/slice/userslice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function Login() {
   const { register, handleSubmit } = useForm();
-  const { loginUserStatus, currentUser, errorOccurred, errMsg } = useSelector(state => state.parentInstructorLogin);
+  const { loginUserStatus, currentUser, errorOccurred, errMsg } = useSelector(state => state.userLogin);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const login = async(loginCred) => {
     console.log(loginCred)
-    let res=dispatch(subhikshaLoginThunk(loginCred));
+    let res=dispatch(userLoginThunk(loginCred));
     console.log(res.message)
   };
 
@@ -22,13 +22,7 @@ function Login() {
     if (loginUserStatus) {
       console.log('Login Success');
       console.log(currentUser)
-      if (currentUser.role == 'Parent') {
-        navigate('/parent');
-      } else if (currentUser.role == 'Admin') {
-        navigate('/admin');
-      } else {
-        navigate('/instructor');
-      }
+      navigate('/')
     }
   }, [loginUserStatus, navigate, currentUser]);
 
@@ -50,7 +44,7 @@ function Login() {
               <Form.Control
                 type="text"
                 placeholder="Enter your username"
-                {...register('username')}
+                {...register('name')}
               />
             </Form.Group>
 

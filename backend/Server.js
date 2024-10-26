@@ -5,7 +5,7 @@ const path = require("path")
 require('dotenv').config()
 
 // deploy react build in this server
-// app.use(exp.static(path.join(__dirname, "../frontend/build")))
+app.use(exp.static(path.join(__dirname, "../frontend/build")))
 
 //import mongoclient
 const mongoClient = require("mongodb").MongoClient;
@@ -46,9 +46,9 @@ const foodApp = require("./APIS/foodapi")
 app.use('/user-api',userApp)
 app.use('/food-api',foodApp)
 
-// app.use((req, res, next) => {
-//   res.sendFile(path.join(__dirname, "../frontend/build/index.html"))
-// })
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "../frontend/build/index.html"))
+})
 
 
 
